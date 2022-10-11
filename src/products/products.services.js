@@ -79,7 +79,7 @@ const patchProductsServices = (req, resp) => {
   const { id } = req.params;
   const { price, isAvailable } = req.body;
 
-  if (price && isAvailable) {
+  if (price || isAvailable) {
     productsConstrollers
       .updateProducts(id, { price, isAvailable })
       .then((data) => {
